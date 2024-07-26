@@ -6,7 +6,7 @@ from jwt.exceptions import InvalidTokenError
 from sqlalchemy.orm import Session
 from typing import Annotated
 from . import database, schemas, models
-from .config import settings
+# from .config import settings
 import os
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
