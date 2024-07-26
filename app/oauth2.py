@@ -7,12 +7,16 @@ from sqlalchemy.orm import Session
 from typing import Annotated
 from . import database, schemas, models
 from .config import settings
+import os
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 # outh2_scheme is an instance of OAuth2PasswordBearer class. It is used to get the token from the request body.
 
-SECRET_KEY = settings.secret_key
-ALGORITHM = settings.algorithm
+# SECRET_KEY = settings.secret_key
+# ALGORITHM = settings.algorithm
+
+SECRET_KEY = os.environ['SECRET_KEY']
+ALGORITHM = os.environ['ALGORITHM']
 
 def create_access_token(data: dict):
     to_encode = data.copy()
